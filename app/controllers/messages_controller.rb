@@ -31,7 +31,7 @@ class MessagesController < ApplicationController
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else
-        format.html { render :new }
+        format.html { render :edit }
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
@@ -69,6 +69,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:title, :message,:name)
+      params.require(:message).permit(:title, :message,:name,:weight)
     end
 end
